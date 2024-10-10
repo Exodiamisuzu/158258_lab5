@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smiley Face Canvas</title>
+<style>
+  canvas {
+    border: 1px solid black;
+  }
+</style>
+</head>
+<body>
+<canvas id="smileyCanvas" width="300" height="300"></canvas>
+
+<script>
+  // Get the canvas element and its context
+  var canvas = document.getElementById('smileyCanvas');
+  var ctx = canvas.getContext('2d');
+
+  // Draw the face
+  ctx.beginPath();
+  ctx.arc(150, 100, 80, 0, Math.PI * 2, true); // Outer circle
+  ctx.fillStyle = 'yellow';
+  ctx.fill();
+  ctx.closePath();
+
+  // Draw the eyes
+  ctx.beginPath();
+  ctx.arc(120, 80, 10, 0, Math.PI * 2, true); // Left eye
+  ctx.arc(180, 80, 10, 0, Math.PI * 2, true); // Right eye
+  ctx.fillStyle = 'black';
+  ctx.fill();
+  ctx.closePath();
+
+   // Draw the nose
+   ctx.beginPath();
+   ctx.rect(150, 90, 1, 25); // Nose 改为更细的宽度
+   ctx.closePath();
+   ctx.fillStyle = 'black';
+   ctx.fill();
+
+
+  // Draw the mouth
+  ctx.beginPath();
+  ctx.arc(150, 130, 40, 0, Math.PI, false); // Mouth
+  ctx.stroke();
+
+  // Add text
+  ctx.font = '16px Arial';
+  ctx.fillStyle = 'green';
+  ctx.fillText('The Canvas brought me to life!', 50, 260);
+  ctx.fillText('Exercise 1 - The HTML5 Canvas', 50, 280);
+</script>
+</body>
+</html>
+
